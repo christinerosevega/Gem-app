@@ -1,0 +1,29 @@
+<!--homepage for Gem-->
+{% extends "base.html" %}
+
+<!-- additional styles -->
+{% block head_stuff %}
+<link rel='stylesheet' href="{{url_for('static', filename = 'main_style.css')}}">
+{% endblock %}
+
+
+{% block main_content %}
+
+
+<div class="hero-image">
+  <img src="{{url_for('static', filename='images/gem-icon.png')}}" alt="Pink Gem Icon">
+  <div class="hero-text">
+
+
+    <h1>Welcome to Gem!</h1>
+
+    <p>Gem is the one stop shop for buying and selling
+      pre-loved items within the Wellesley College community!
+      Who knows... you might make a little
+      bit of cash or find a new pre-loved Gem!</p>
+
+    <a href = "{{ url_for('listings') }}">Explore items for sale</a>
+    <a href = "{{ url_for('create_listing') }}">Sell an item</a>
+  </div>
+</div>
+{% endblock %}

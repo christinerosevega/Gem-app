@@ -1,0 +1,41 @@
+<!--profile page that displays a user's listings-->
+{% extends "base.html" %}
+{% block head_stuff %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel='stylesheet' href="{{url_for('static', filename = 'listings_style.css')}}">
+{% endblock %}
+
+
+{% block main_content %}
+
+<h1>Your Listings:</h1>
+    <!-- "listings" contains all of the listings in the database not marked as "Sold" -->
+    {% for listing in listings %}
+
+    <!-- separate divs for formatting reasons: 
+      taken from W3 schools image gallery template-->
+    <div class="responsive">
+      <div class="gallery">
+        <!-- For now, we are hardcoding the image, since have not  implemented storing the 
+          image in the database yet. -->
+        <a target="_blank" href="{{url_for('item_page', item_identifier = listing.item_id)}}">
+          <img src= "{{url_for('pic',image=listing.image)}}" alt="{{listing.item_name}}" 
+              width="600" height="400">
+        </a>
+        <!-- listing info that will show for each listing -->
+        <div class="desc">{{listing.item_name}}</div>
+        <div class="desc">${{listing.price}}</div>
+        
+        {% if name == listing.seller_id %}
+            <a  href = "{{ url_for('update_listing',item_identifier=listing.item_id) }}">Update</a>
+            <a  href="{{ url_for('delete_listing',item_identifier=listing.item_id) }}">Delete</a>
+        {% endif %}
+      </div>
+
+    </div>
+    {% endfor %}
+{% endblock %}
+
+
+{% block end_scripts %}
+{% endblock %}
