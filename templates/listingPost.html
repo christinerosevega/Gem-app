@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name=author content="GEM">
+    <title></title>
+    <link rel='stylesheet' href="../static/style.css">
+     
+</head>
+<body>
+
+<h1>Here is what we got from you (example post):</h1>
+<p>Item Name: {{ item.item_name }}</p>
+<p>Item Description: {{ item.item_description }}</p>
+<p>Item Condition: {{ item.condition }}</p>
+<p>Item Categories: {{ item.category }}</p>
+<p>Item For Free? {{ item.free }}</p>
+<p>If not free, item price: {{ item.price }}</p>
+<!--No database equivalent yet for availablefor-->
+<!--<p>Item available for: {{ item.availablefor }}</p>-->
+<!--Image should be None/Null.-->
+<p>Image: {{ item.image }}</p>
+<p>Email of seller: {{ item.seller_id }}</p>
+
+
+</body>
+</html>
